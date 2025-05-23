@@ -244,7 +244,8 @@ def stitch_tiles(min_x, max_x, min_y, max_y, zoom_level, crs_string):
                     pass
 
         output_dir = get_output_dir()
-        stitched_image_path = os.path.join(output_dir, f"stitched_satellite_z{zoom_level}.jpg")
+        current_date = datetime.now().strftime("%Y-%m-%d")
+        stitched_image_path = os.path.join(output_dir, f"{current_date}_z{zoom_level}.jpg")
         stitched_image.save(stitched_image_path, 'JPEG', quality=90)
         
         # Add georeferencing with the specified CRS
